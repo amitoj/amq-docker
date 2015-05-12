@@ -16,6 +16,8 @@ then
 	NC_TTL=1
 fi
 
+sed -i "s/<broker /<broker schedulerSupport="true" /g" activemq.xml
+
 sed -i "s/brokerName=\"localhost\"/brokerName=\"\$\{activemq.brokername\}\"/g" activemq.xml
 	
 if [ -z $CLUSTER_NODES ]
